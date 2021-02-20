@@ -25,8 +25,6 @@ npm install --global arnaudjuracek/cabinet
 
 ## Usage
 ```
-$ cabinet
-
 Usage:
   cabinet <url>
   cabinet <url> --output <path>

@@ -1,5 +1,3 @@
-$ cabinet
-
 Usage:
   cabinet <url>
   cabinet <url> --output <path>
