@@ -1,0 +1,25 @@
+{
+  "name": "cabinet",
+  "description": "Personnal cli tool to save web articles as markdown files",
+  "version": "1.0.0",
+  "bin": "bin/index.js",
+  "author": "Arnaud Juracek <arnaud.juracek@gmail.com> (http://arnaudjuracek.fr/)",
+  "license": "MIT",
+  "dependencies": {
+    "@mozilla/readability": "^0.4.1",
+    "chalk": "^4.1.0",
+    "download": "^8.0.0",
+    "fs-extra": "^9.1.0",
+    "jsdom": "^16.4.0",
+    "minimist": "^1.2.5",
+    "turndown": "^7.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-standard": "^5.0.0"
+  }
+}

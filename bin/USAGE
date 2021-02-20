@@ -1,0 +1,21 @@
+$ cabinet
+
+Usage:
+  cabinet <url>
+  cabinet <url> --output <path>
+  cabinet <url> --output <path> --download-images
+
+  echo $(cabinet <url> --dry) > file.md
+  open $(cabinet <url> --output /tmp/ --porcelain)
+
+Options:
+  -h, --help         Show this screen
+  -v, --version      Print the current version
+  --verbose          Log additional informations to stderr
+  --porcelain        Only output the markdown file path when finish
+
+  -n, --dry          Output the article in stdout instead of writing a file.
+                     Force --porcelain, disable --output and --download-images
+
+  -o, --output       Define the output directory (default: $PWD)
+  --download-images  Download all images of the article in a medias/ directory
