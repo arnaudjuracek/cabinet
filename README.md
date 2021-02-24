@@ -22,6 +22,7 @@ This tool adheres to the UNIX philosophy, and leverage your native file system a
 ```
 npm install --global arnaudjuracek/cabinet
 ```
+<sup>**Note:** if using `fnm`, use either `npx arnaudjuracek/cabinet` or `yarn global add arnaudjuracek/cabinet`</sup>
 
 ## Usage
 ```
