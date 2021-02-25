@@ -1,4 +1,4 @@
 # {{ title }}
 {{ url }}
 
-{{ content }}
+{{ markdown }}

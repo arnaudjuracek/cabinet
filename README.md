@@ -26,25 +26,43 @@ npm install --global arnaudjuracek/cabinet
 
 ## Usage
 ```
-Usage:
+Usage
   cabinet <url>
-  cabinet <url> --output <path>
-  cabinet <url> --output <path> --download-images
+  cabinet <url> --output <file>
+  cabinet <url> --output <file> --download <dir>
 
-  echo $(cabinet <url> --dry) > file.md
-  open $(cabinet <url> --output /tmp/ --porcelain)
+  cabinet <url> > article.md
+  open $(cabinet <url> --output /tmp/article.md)
 
-Options:
-  -h, --help         Show this screen
-  -v, --version      Print the current version
-  --verbose          Log additional informations to stderr
-  --porcelain        Only output the markdown file path when finish
+Options
+  -h, --help            Show this screen
+  -v, --version         Print the current version
+  --verbose             Log additional informations to stderr
 
-  -n, --dry          Output the article in stdout instead of writing a file.
-                     Force --porcelain, disable --output and --download-images
+  -o, --output=<file>   Write to <file> instead of stdout. Stdout will instead
+                        output the path of the written file.
+  --download=<dir>      Define if and where article images should be downloaded
+  --template=<file>     Specify an alternative template file
 
-  -o, --output       Define the output directory (default: $PWD)
-  --download-images  Download all images of the article in a medias/ directory
+
+Interpolated strings
+  In both --output and inside a markdown template, the following interpolated
+  strings are available:
+
+  {{ title }}           Article title
+  {{ content }}         HTML string of processed article content
+  {{ markdown }}        Markdown string of processed article content
+  {{ textContent }}     Text content of the article, with all the HTML tags
+                        removed
+  {{ length }}          Length of an article, in characters
+  {{ excerpt }}         Article description, or short excerpt from the content
+  {{ byline }}          Author metadata
+  {{ url }}             Article url
+  {{ domain }}          Article domain
+  {{ timestamp }}       Current date
+
+  Note that interpolated strings in --output are slugged
+
 ```
 
 ### Example uses of `cabinet`
@@ -52,18 +70,21 @@ Options:
 #### Save an article and tag it using [`tag`](https://github.com/jdberry/tag)
 
 ```bash
-$ tag -a 'Unread' $(cabinet <url> --porcelain)
+$ tag -a 'Unread' $(cabinet <url> --output 'my-article.md')
+$ tag -a 'Unread' $(cabinet <url> --output '{{title}}.md')
+$ tag -a 'Unread' $(cabinet <url> --output "$(date -f 'yyyymmdd')_{{title}}.md")
 ```
 
 #### Read an article without creating a file using [`vmd`](https://github.com/yoshuawuyts/vmd)
+
 ```bash
-$ cabinet <url> --dry | vmd
+$ cabinet <url> | vmd
 ```
 
 #### Convert an article to pdf using [`pandoc`](https://github.com/jgm/pandoc)
 
 ```bash
-$ pandoc $(cabinet <url> --porcelain) --toc --number-sections --output "my-article.pdf"
+$ pandoc $(cabinet <url> --output 'my-article.md') --toc --number-sections --output "my-article.pdf"
 ```
 
 #### Migrate your pocket archive
@@ -76,7 +97,7 @@ POCKET_URL='https://getpocket.com/v3/get'
 POCKET_AUTH="consumer_key=$POCKET_CONSUMER_KEY&access_token=$POCKET_ACCESS_TOKEN"
 
 for url in $(jq -r '.list[]? | .resolved_url' <<< $(curl -s -d "$POCKET_AUTH&state=all" -X POST $POCKET_URL)); do
-  cabinet $url --output "pocket-dump" --download-images;
+  cabinet $url --output "pocket-dump/{{title}}.md" --download "pocket-dump/medias";
 done
 
 ```
