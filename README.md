@@ -5,16 +5,16 @@
 
 ## Philosophy
 
-While some really complete options exist out there for saving articles from the web (Pocket, Instapaper, Evernote, etc…), they come with their proprietary client, do not always offer real archiving capabilities, and tend to be bloated by too much features.
+While some really complete options exist out there for saving articles from the web (Pocket, Instapaper, Evernote, etc…), they come with their proprietary client, do not always offer real archiving capabilities, and tend to be bloated by too much features. Also, Pocket search engine in its free version is garbage.
 
 This tool adheres to the UNIX philosophy, and leverage your native file system as a way of storing and organizing articles. It saves articles in markdown format, and let you implement your own way of organizing, retrieving and reading content.
 
 ## Features
 
 - Save an article to a markdown file using its URL
-- Optionally save all medias along side the article in a `medias/` folder
-- Output the saved file to `stdout` using `--porcelain` (useful for piping)
-- Output the article to `stdout` instead of writing to a file using `-n, --dry`
+- Output the content to `stdout` or write it to a file and pipe its path
+- Optionally save all medias along side the article in a custom folder
+- Handle interpolated strings in filename and markdown template to re-use article informations
 - That’s it.
 
 ## Installation
