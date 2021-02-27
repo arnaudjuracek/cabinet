@@ -37,8 +37,6 @@ Usage
 Options
   -h, --help            Show this screen
   -v, --version         Print the current version
-  --verbose             Log additional informations to stderr
-
   -o, --output=<file>   Write to <file> instead of stdout. Stdout will instead
                         output the path of the written file.
   --download=<dir>      Define if and where article images should be downloaded
