@@ -101,6 +101,25 @@ done
 ```
 <sup>**Note:** the above script relies on [`jq`](https://stedolan.github.io/jq/) to parse the Pocket API response.</sup>
 
+#### Programmatic
+
+```js
+const path = require('path')
+const cabinet = require('arnaudjuracek/cabinet')
+
+cabinet(url, {
+  output: path.join(process.cwd(), '{{title}}.md'),
+  download: path.join(process.cwd(), 'medias'),
+  template: path.join(process.cwd(), 'template.md')
+})
+.then(filename => {
+  console.log('Saved to ' + filename)
+})
+.catch(error => {
+  console.error(error)
+})
+
+```
 
 ## Disclaimer
 
