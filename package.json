@@ -1,7 +1,7 @@
 {
   "name": "cabinet",
   "description": "Personnal cli tool to save web articles as markdown files",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "bin": "bin/index.js",
   "main": "lib/index.js",
   "author": "Arnaud Juracek <arnaud.juracek@gmail.com> (http://arnaudjuracek.fr/)",
