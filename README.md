@@ -1,4 +1,4 @@
-# `$ cabinet` <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/file-cabinet_1f5c4-fe0f.png" width="100" align="right">
+# `$ cabinet` <img src="https://em-content.zobj.net/thumbs/240/apple/325/file-cabinet_1f5c4-fe0f.png" width="100" align="right">
 **Personal cli tool to save web articles as markdown files**
 
 <br>
